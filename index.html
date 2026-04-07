@@ -3,39 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Instituto Municipal de la Juventud – Departamentos y programas para jóvenes en Gómez Palacio.">
     <title>Instituto Municipal de la Juventud</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Instituto Municipal de la Juventud</h1>
+
+    <!-- ===== HEADER ===== -->
+    <header role="banner">
+        <div class="header-inner">
+            <a href="index.html" class="logo-area" aria-label="Inicio - Instituto Municipal de la Juventud">
+                <img src="Images/Logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="logo-fallback" aria-hidden="true">Logo</div>
+                <span class="logo-text">IMDLJ</span>
+            </a>
+            <nav aria-label="Navegación principal">
+                <ul>
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="departamentos.html">Departamentos</a></li>
+                    <li><a href="programas.html">Programas</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <div class="dropdown-container">
-            <div class="dropdown">
-                <label for="departamentos">Departamentos</label>
-                <select id="departamentos">
-                    <option value="" disabled selected>Selecciona un departamento</option>
-                    <option value="servicio-social">Servicio social y prácticas</option>
-                    <option value="bolsa-empleo">Bolsa de Empleo</option>
-                    <option value="mercado-emprendedor">Mercado Emprendedor</option>
-                    <option value="bonos-transporte">Bonos de transporte</option>
-                    <option value="requisiciones">Requisiciones</option>
-                </select>
+    <!-- ===== HERO ===== -->
+    <section class="hero" aria-label="Bienvenida">
+        <h1>Instituto Municipal de la Juventud</h1>
+        <p>Impulsando oportunidades para los jóvenes de Gómez Palacio a través de programas, servicios y empleo.</p>
+
+        <div class="quick-links">
+            <a href="departamentos.html" class="quick-link-btn teal">Departamentos</a>
+            <a href="programas.html" class="quick-link-btn magenta">Programas</a>
+        </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="content" id="main-content">
+
+        <section class="text-block" aria-labelledby="mision-title">
+            <h2 id="mision-title" class="section-heading">Misión</h2>
+            <p>Ser un puente estratégico entre las juventudes, el gobierno municipal y los diversos sectores de la sociedad, fomentando entornos seguros, resilientes y participativos que respondan a las necesidades, intereses y aspiraciones de las personas jóvenes, especialmente de aquellas en situación de vulnerabilidad, marginación o exclusión, a través de un enfoque territorial, interinstitucional e intergeneracional.</p>
+        </section>
+
+        <section class="text-block" aria-labelledby="vision-title">
+            <h2 id="vision-title" class="section-heading">Visión</h2>
+            <p>Consolidarse como un referente de gobernanza participativa, innovación social y atención integral a las juventudes, posicionando a las y los jóvenes gomezpalatinos como protagonistas del desarrollo local, capaces de liderar procesos de cambio, generar soluciones creativas y fortalecer la cohesión comunitaria, en un Gómez Palacio más justo, equitativo, seguro y próspero.</p>
+        </section>
+
+        <section class="text-block" aria-labelledby="objetivo-title">
+            <h2 id="objetivo-title" class="section-heading">Objetivo General</h2>
+            <p>Garantizar que las juventudes de Gómez Palacio ejerzan plenamente sus derechos, accedan a oportunidades de calidad y contribuyan activamente al fortalecimiento del tejido social y al desarrollo integral del municipio, mediante la implementación de acciones estratégicas que reduzcan las brechas de desigualdad y fortalezcan sus capacidades en diversos ámbitos de la vida.</p>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer role="contentinfo">
+        <div class="footer-inner">
+            <p class="footer-title"><strong>Instituto Municipal de la Juventud</strong></p>
+
+            <div class="footer-info">
+                <p class="footer-label">INFORMES:</p>
+                <address>
+                    Santiago Lavín 327, Zona Centro, Gómez Palacio, Durango.
+                </address>
+                <p class="footer-phone">
+                    <svg class="phone-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    871 688 3988
+                </p>
             </div>
 
-            <div class="dropdown">
-                <label for="programas">Programas</label>
-                <select id="programas">
-                    <option value="" disabled selected>Selecciona un programa</option>
-                    <option value="tarjeta-latido">Tarjeta latido joven</option>
-                    <option value="descuento-ujed">Descuento UJED</option>
-                    <option value="descuento-trilingue">Descuento C Universitario Trilingüe</option>
-                    <option value="consultas-psicologicas">Consultas psicológicas</option>
-                </select>
-            </div>
+            <p class="footer-copy">&copy; 2026 Instituto Municipal de la Juventud · Gómez Palacio, Durango</p>
+            <p class="footer-credit">Creador: Nery Emmanuel Castillo Martínez</p>
         </div>
-    </main>
+    </footer>
+
 </body>
 </html>
