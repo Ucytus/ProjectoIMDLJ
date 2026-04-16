@@ -1,0 +1,489 @@
+/* ============================================
+   Accessibility Panel & Modes
+   ============================================ */
+
+/* ---- Floating Toggle Button ---- */
+.a11y-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9998;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-red-dark);
+  color: var(--color-white);
+  border: 2px solid var(--color-gold);
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 0.25rem 1.5rem rgba(0,0,0,0.35);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1),
+              background 0.2s ease,
+              box-shadow 0.3s ease;
+}
+
+.a11y-toggle:hover {
+  transform: scale(1.12);
+  background: var(--color-red);
+  box-shadow: 0 0.4rem 2rem rgba(0,0,0,0.45), 0 0 0 4px rgba(212,168,67,0.25);
+}
+
+.a11y-toggle:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+.a11y-toggle svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+/* ---- Backdrop ---- */
+.a11y-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: rgba(0,0,0,0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.a11y-backdrop.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---- Panel ---- */
+.a11y-panel {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  width: min(24rem, 92vw);
+  max-height: 85vh;
+  background: #1a1215;
+  border-left: 1px solid rgba(212,168,67,0.2);
+  border-top: 1px solid rgba(212,168,67,0.2);
+  border-top-left-radius: 1.25rem;
+  box-shadow: -0.5rem 0 3rem rgba(0,0,0,0.5);
+  transform: translateX(105%);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.a11y-panel.open {
+  transform: translateX(0);
+}
+
+/* ---- Panel Header ---- */
+.a11y-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}
+
+.a11y-header-title {
+  font-family: var(--font-accent);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.a11y-header-title svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: var(--color-gold);
+}
+
+.a11y-close {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 0.4rem;
+  color: rgba(255,255,255,0.6);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.a11y-close:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+/* ---- Panel Body ---- */
+.a11y-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 1.4rem 1.4rem;
+}
+
+.a11y-body::-webkit-scrollbar {
+  width: 5px;
+}
+
+.a11y-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.a11y-body::-webkit-scrollbar-thumb {
+  background: rgba(212,168,67,0.25);
+  border-radius: 3px;
+}
+
+/* ---- Section Group ---- */
+.a11y-group {
+  margin-bottom: 1.2rem;
+}
+
+.a11y-group-title {
+  font-family: var(--font-accent);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(212,168,67,0.12);
+}
+
+/* ---- Option Buttons ---- */
+.a11y-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.a11y-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.7rem 0.5rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0.6rem;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-accent);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease,
+              transform 0.15s ease;
+}
+
+.a11y-option:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+.a11y-option.active {
+  background: rgba(212,168,67,0.15);
+  border-color: var(--color-gold);
+  color: var(--color-gold-light);
+}
+
+.a11y-option:active {
+  transform: scale(0.96);
+}
+
+.a11y-option-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.a11y-option-label {
+  line-height: 1.2;
+}
+
+/* ---- Full-Width Option ---- */
+.a11y-options--full {
+  grid-template-columns: 1fr;
+}
+
+/* ---- Reset Button ---- */
+.a11y-reset {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.65rem 1rem;
+  background: rgba(155,35,53,0.2);
+  border: 1px solid rgba(155,35,53,0.3);
+  border-radius: 0.5rem;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.a11y-reset:hover {
+  background: rgba(155,35,53,0.35);
+  border-color: rgba(155,35,53,0.5);
+  color: #fff;
+}
+
+
+/* ============================================
+   ACCESSIBILITY MODES — Applied to <html>
+   ============================================ */
+
+/* ---- Big Text ---- */
+html.a11y-big-text {
+  font-size: 125%;
+}
+
+html.a11y-bigger-text {
+  font-size: 150%;
+}
+
+/* ---- Dyslexia-Friendly Font ---- */
+html.a11y-dyslexia *,
+html.a11y-dyslexia h1,
+html.a11y-dyslexia h2,
+html.a11y-dyslexia h3,
+html.a11y-dyslexia h4,
+html.a11y-dyslexia p,
+html.a11y-dyslexia a,
+html.a11y-dyslexia span,
+html.a11y-dyslexia li,
+html.a11y-dyslexia button,
+html.a11y-dyslexia input,
+html.a11y-dyslexia select,
+html.a11y-dyslexia textarea,
+html.a11y-dyslexia label {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', 'Verdana', sans-serif !important;
+  letter-spacing: 0.05em !important;
+  word-spacing: 0.15em !important;
+}
+
+/* ---- Increased Letter Spacing ---- */
+html.a11y-letter-spacing * {
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.2em !important;
+}
+
+/* ---- Increased Line Height ---- */
+html.a11y-line-height p,
+html.a11y-line-height li,
+html.a11y-line-height span,
+html.a11y-line-height a,
+html.a11y-line-height .mvo-card-text,
+html.a11y-line-height .dept-card-desc,
+html.a11y-line-height .program-card-desc,
+html.a11y-line-height .info-block-text {
+  line-height: 2.2 !important;
+}
+
+/* ---- High Contrast ---- */
+html.a11y-high-contrast {
+  filter: contrast(1.4);
+}
+
+html.a11y-high-contrast body,
+html.a11y-high-contrast section,
+html.a11y-high-contrast header,
+html.a11y-high-contrast footer,
+html.a11y-high-contrast .info-section,
+html.a11y-high-contrast .departments,
+html.a11y-high-contrast .programs {
+  background: #000 !important;
+}
+
+html.a11y-high-contrast .dept-card,
+html.a11y-high-contrast .mvo-card,
+html.a11y-high-contrast .contact-form-wrapper,
+html.a11y-high-contrast .contact-detail-item {
+  background: #111 !important;
+  border-color: #fff !important;
+  color: #fff !important;
+}
+
+html.a11y-high-contrast p,
+html.a11y-high-contrast span,
+html.a11y-high-contrast h1,
+html.a11y-high-contrast h2,
+html.a11y-high-contrast h3,
+html.a11y-high-contrast a,
+html.a11y-high-contrast li {
+  color: #fff !important;
+}
+
+/* ---- Link Highlight ---- */
+html.a11y-highlight-links a {
+  outline: 2px solid var(--color-gold) !important;
+  outline-offset: 2px;
+  text-decoration: underline !important;
+  text-decoration-color: var(--color-gold) !important;
+  text-underline-offset: 3px;
+}
+
+html.a11y-highlight-links a:hover {
+  outline-width: 3px !important;
+  background: rgba(212,168,67,0.15) !important;
+}
+
+/* ---- Big Cursor ---- */
+html.a11y-big-cursor,
+html.a11y-big-cursor * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewBox='0 0 40 48'%3E%3Cpath d='M4 0L4 40L14 30L24 46L30 43L20 27L34 27Z' fill='black' stroke='white' stroke-width='2'/%3E%3C/svg%3E") 4 0, auto !important;
+}
+
+/* ---- Reduced Motion ---- */
+html.a11y-reduced-motion *,
+html.a11y-reduced-motion *::before,
+html.a11y-reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* ---- Reading Guide / Line Focus ---- */
+.a11y-reading-guide {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: 9990;
+  pointer-events: none;
+  display: none;
+}
+
+html.a11y-line-focus .a11y-reading-guide {
+  display: block;
+}
+
+.a11y-reading-guide-top,
+.a11y-reading-guide-bottom {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9990;
+  pointer-events: none;
+  transition: top 0.08s linear, height 0.08s linear;
+  display: none;
+}
+
+html.a11y-line-focus .a11y-reading-guide-top,
+html.a11y-line-focus .a11y-reading-guide-bottom {
+  display: block;
+}
+
+.a11y-reading-guide-top {
+  top: 0;
+}
+
+/* ============================================
+   COLOR BLIND FILTERS
+   ============================================ */
+
+/* Protanopia — Red-blind */
+html.a11y-protanopia {
+  filter: url('#protanopia-filter');
+}
+
+/* Deuteranopia — Green-blind */
+html.a11y-deuteranopia {
+  filter: url('#deuteranopia-filter');
+}
+
+/* Tritanopia — Blue-blind */
+html.a11y-tritanopia {
+  filter: url('#tritanopia-filter');
+}
+
+/* Achromatopsia — Full greyscale */
+html.a11y-achromatopsia {
+  filter: grayscale(100%);
+}
+
+/* ---- Invert Colors ---- */
+html.a11y-invert {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.a11y-invert img,
+html.a11y-invert video,
+html.a11y-invert .hero-bg,
+html.a11y-invert .page-hero-bg {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* ---- Hide Images (Text Only) ---- */
+html.a11y-hide-images img,
+html.a11y-hide-images .hero-bg,
+html.a11y-hide-images .page-hero-bg,
+html.a11y-hide-images .info-block-image,
+html.a11y-hide-images .hero-particles {
+  display: none !important;
+}
+
+
+
+/* ---- Saturation Boost ---- */
+html.a11y-saturate {
+  filter: saturate(2);
+}
+
+/* ---- Low Saturation ---- */
+html.a11y-desaturate {
+  filter: saturate(0.3);
+}
+
+/* ---- Prevent filter stacking conflicts ---- */
+html.a11y-protanopia.a11y-high-contrast,
+html.a11y-deuteranopia.a11y-high-contrast,
+html.a11y-tritanopia.a11y-high-contrast {
+  filter: contrast(1.4);
+}
+
+/* ---- Mobile adjustments ---- */
+@media (max-width: 30rem) {
+  .a11y-toggle {
+    bottom: 1rem;
+    right: 1rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    font-size: 1.2rem;
+  }
+
+  .a11y-panel {
+    width: 100vw;
+    max-height: 75vh;
+    border-radius: 1.25rem 1.25rem 0 0;
+    border-left: none;
+    bottom: 0;
+    right: 0;
+    transform: translateY(105%);
+  }
+
+  .a11y-panel.open {
+    transform: translateY(0);
+  }
+}

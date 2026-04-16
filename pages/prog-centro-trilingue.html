@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Centro Universitario Trilingüe del Instituto Municipal de la Juventud de Gómez Palacio.">
+  <title>Centro Universitario Trilingüe — IMJ</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/reset.css">
+  <link rel="stylesheet" href="../styles/header.css">
+  <link rel="stylesheet" href="../styles/about.css">
+  <link rel="stylesheet" href="../styles/accessibility.css">
+  <link rel="stylesheet" href="../styles/footer.css">
+  
+  <style>
+    .prog-hero { min-height: 50vh; background: linear-gradient(135deg, var(--color-burgundy) 0%, #300000 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 3rem; }
+    .prog-hero h1 { font-family: var(--font-heading); color: var(--color-white); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+    .prog-hero p { color: var(--color-gold-light); font-family: var(--font-accent); font-size: 1.2rem; max-width: 600px; }
+    .prog-icon { font-size: 4rem; margin-bottom: 1rem; }
+    .prog-content { padding: 4rem 2rem; max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .prog-text p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text); margin-bottom: 1.5rem; }
+    .prog-visual { background: var(--color-off-white); border-radius: var(--border-radius-lg); padding: 3rem; text-align: center; border: 1px solid rgba(212,168,67,0.2); box-shadow: var(--shadow-md); }
+    .prog-visual-icon { font-size: 6rem; margin-bottom: 1.5rem; }
+    @media (max-width: 768px) { .prog-content { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="header-brand"><img src="../images/logo.png" alt="Logo IMJ" class="header-logo" onerror="this.style.display='none'"><div class="header-brand-text"><span class="header-brand-name">Instituto Municipal de la Juventud</span><span class="header-brand-location">Gómez Palacio, Durango</span></div></a>
+      <nav class="header-nav"><a href="../index.html" class="nav-link">Inicio</a><a href="about.html" class="nav-link">Nosotros</a><a href="../index.html#departments" class="nav-link">Departamentos</a><a href="../index.html#programs" class="nav-link active">Programas</a><a href="contact.html" class="nav-cta">Contáctanos</a></nav>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="prog-hero">
+    <div class="prog-icon reveal">📚</div>
+    <h1 class="reveal delay-1">Centro Universitario Trilingüe</h1>
+    <p class="reveal delay-2">Beneficios especiales para potenciar tu educación continua.</p>
+  </section>
+
+  <section class="prog-content">
+    <div class="prog-text reveal-left">
+      <h2>Alianzas por tu Formación</h2>
+      <p>Buscando siempre facilitar el acceso a la educación y el desarrollo de habilidades globales en nuestras juventudes, el Instituto Municipal ha consolidado una alianza directa con el <strong>Centro Universitario Trilingüe</strong>.</p>
+      <p>Esto permite a los jóvenes de Gómez Palacio acceder a cuotas preferenciales, descuentos únicos en colegiaturas, e incluso apoyos en procesos de inscripción para profesionalizar sus capacidades lingüísticas y académicas de manera sobresaliente.</p>
+      <a href="contact.html" class="btn btn-primary">Más Información <span class="btn-icon">→</span></a>
+    </div>
+    <div class="prog-visual reveal-right">
+      <div class="prog-visual-icon">🚀</div>
+      <h3>Formación Integral</h3>
+      <p style="color: var(--color-text-muted); margin-top: 1rem; line-height: 1.6;">El mundo moderno requiere profesionales altamente capacitados; tu municipio quiere acompañarte a que llegues allí.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="footer-bottom"><p class="footer-copyright">© 2026 Instituto Municipal de la Juventud.</p></div></footer>
+  <script src="../js/main.js"></script><script src="../js/accessibility.js"></script>
+</body>
+</html>

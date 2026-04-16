@@ -1,0 +1,276 @@
+/* ============================================
+   About / Mission-Vision Page Styles
+   ============================================ */
+
+/* ---- Page Hero (Smaller) ---- */
+.page-hero {
+  position: relative;
+  min-height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-hero);
+  padding: calc(var(--header-height) + 3rem) 2rem 3rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('../images/about-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-overlay);
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 48rem;
+}
+
+.page-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  animation: fadeSlideUp 0.8s 0.2s both ease-out;
+}
+
+.page-hero-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+  animation: fadeSlideUp 0.8s 0.4s both ease-out;
+}
+
+/* ---- Mission / Vision / Objective Cards ---- */
+.mvo-section {
+  padding: var(--section-padding);
+  background: var(--color-off-white);
+}
+
+.mvo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.mvo-card {
+  position: relative;
+  padding: 2.5rem 2rem;
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid rgba(200, 16, 46, 0.06);
+  overflow: hidden;
+  transition: transform var(--transition-spring),
+              box-shadow var(--transition-base);
+}
+
+.mvo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+.mvo-card--mission::before {
+  background: var(--color-red);
+}
+.mvo-card--vision::before {
+  background: var(--color-gold);
+}
+.mvo-card--objective::before {
+  background: var(--gradient-red-soft);
+}
+
+.mvo-card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: var(--shadow-lg);
+}
+
+.mvo-card-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  transition: transform var(--transition-spring);
+}
+
+.mvo-card:hover .mvo-card-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.mvo-card--mission .mvo-card-icon {
+  background: rgba(200, 16, 46, 0.08);
+}
+.mvo-card--vision .mvo-card-icon {
+  background: rgba(212, 168, 67, 0.12);
+}
+.mvo-card--objective .mvo-card-icon {
+  background: rgba(200, 16, 46, 0.06);
+}
+
+.mvo-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--color-red-dark);
+  margin-bottom: 1rem;
+}
+
+.mvo-card-text {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+/* ---- Info Blocks (Programs descriptions, etc.) ---- */
+.info-section {
+  padding: var(--section-padding);
+  background: var(--color-white);
+}
+
+.info-section:nth-child(even) {
+  background: var(--color-off-white);
+}
+
+.info-block {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.info-block.reversed {
+  direction: rtl;
+}
+
+.info-block.reversed > * {
+  direction: ltr;
+}
+
+.info-block-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.info-block-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.info-block-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--color-red-dark);
+  line-height: 1.2;
+}
+
+.info-block-text {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.info-block-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(200,16,46,0.06), rgba(212,168,67,0.06));
+  border: 1px solid rgba(200,16,46,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  transition: transform var(--transition-spring);
+}
+
+.info-block-image:hover {
+  transform: scale(1.02);
+}
+
+.info-block-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- CTA Banner ---- */
+.cta-banner {
+  padding: 5rem 2rem;
+  background: var(--gradient-hero);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.cta-banner-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.cta-banner-text {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 64rem) {
+  .mvo-grid {
+    grid-template-columns: 1fr;
+    max-width: 38rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .info-block {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .info-block.reversed {
+    direction: ltr;
+  }
+
+  .page-hero {
+    min-height: 35vh;
+  }
+}

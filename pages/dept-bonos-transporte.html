@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bonos de Transporte del Instituto Municipal de la Juventud de Gómez Palacio.">
+  <title>Bonos de Transporte — IMJ</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles/variables.css">
+  <link rel="stylesheet" href="../styles/reset.css">
+  <link rel="stylesheet" href="../styles/header.css">
+  <link rel="stylesheet" href="../styles/about.css">
+  <link rel="stylesheet" href="../styles/accessibility.css">
+  <link rel="stylesheet" href="../styles/footer.css">
+  
+  <style>
+    .dept-hero { min-height: 50vh; background: linear-gradient(135deg, var(--color-burgundy) 0%, var(--color-red-dark) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 3rem; }
+    .dept-hero h1 { font-family: var(--font-heading); color: var(--color-white); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 1rem; }
+    .dept-hero p { color: var(--color-gold-light); font-family: var(--font-accent); font-size: 1.2rem; max-width: 600px; }
+    .dept-icon { font-size: 4rem; margin-bottom: 1rem; }
+    .dept-content { padding: 4rem 2rem; max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .dept-text p { font-size: 1.1rem; line-height: 1.8; color: var(--color-text); margin-bottom: 1.5rem; }
+    .dept-visual { background: var(--color-off-white); border-radius: var(--border-radius-lg); padding: 3rem; text-align: center; border: 1px solid rgba(212,168,67,0.2); box-shadow: var(--shadow-md); }
+    .dept-visual-icon { font-size: 6rem; margin-bottom: 1.5rem; }
+    @media (max-width: 768px) { .dept-content { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="header-brand"><img src="../images/logo.png" alt="Logo IMJ" class="header-logo"><div class="header-brand-text"><span class="header-brand-name">Instituto Municipal de la Juventud</span><span class="header-brand-location">Gómez Palacio, Durango</span></div></a>
+      <nav class="header-nav"><a href="../index.html" class="nav-link">Inicio</a><a href="about.html" class="nav-link">Nosotros</a><a href="../index.html#departments" class="nav-link active">Departamentos</a><a href="../index.html#programs" class="nav-link">Programas</a><a href="contact.html" class="nav-cta">Contáctanos</a></nav>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="dept-hero">
+    <div class="dept-icon reveal">🚌</div>
+    <h1 class="reveal delay-1">Bonos de Transporte</h1>
+    <p class="reveal delay-2">Apoyamos tu movilidad estudiantil en Gómez Palacio.</p>
+  </section>
+
+  <section class="dept-content">
+    <div class="dept-text reveal-left">
+      <h2>Tu camino seguro al estudio</h2>
+      <p>Sabemos que la movilidad es clave para tu formación académica y desarrollo profesional. El programa de Bonos de Transporte está diseñado para brindar apoyo directo a las juventudes que diariamente se trasladan a sus centros de estudio o trabajo.</p>
+      <p>Mediante este beneficio, aliviamos la carga económica para ti y tu familia, garantizando que el transporte no sea un impedimento para que alcances tus metas. Infórmate sobre las convocatorias, requisitos de afiliación y fechas de entrega para acceder a este importante apoyo.</p>
+      <a href="contact.html" class="btn btn-primary">Solicitar Información <span class="btn-icon">→</span></a>
+    </div>
+    <div class="dept-visual reveal-right">
+      <div class="dept-visual-icon">🎫</div>
+      <h3>Cero Barreras</h3>
+      <p style="color: var(--color-text-muted); margin-top: 1rem; line-height: 1.6;">Nuestro objetivo es lograr cero deserción escolar por causas económicas, asegurando traslados dignos y accesibles a toda la juventud gomezpalatina.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="footer-bottom"><p class="footer-copyright">© 2026 Instituto Municipal de la Juventud.</p></div></footer>
+  <script src="../js/main.js"></script><script src="../js/accessibility.js"></script>
+</body>
+</html>
